@@ -48,6 +48,10 @@ export async function logout() {
 export async function updateCurrentUser({ password, fullName, avatar }) {
   // Update password OR fullName
   let updateData;
+
+  //Remove this in real application to ensure password change is possible
+  if (password) throw new Error('Password cannot be changed in demo application');
+
   if (password) updateData = { password };
   if (fullName) updateData = { data: { fullName } };
 
