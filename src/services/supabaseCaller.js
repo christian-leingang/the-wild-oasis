@@ -1,10 +1,7 @@
-import { uploadBookings } from '../data/Uploader';
-import supabase from './supabase';
+import supabase from './supabase.js';
 
 async function fetchData() {
   let { data: cabins, error } = await supabase.from('cabins').select('*');
-
-  uploadBookings();
 
   if (error) {
     console.error('Error fetching data:', error);
